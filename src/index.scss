@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@300;400;500;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  transition: width 0.2s;
+  position: absolute;
+  top: 0;
+}
+.menu-item::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  transition: width 0.2s;
+  position: absolute;
+  top: 0;
+}
+.menu-item:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+.content {
+  -webkit-text-stroke: 1px #fff;
+}
+
+.menu-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.2s;
+  position: absolute;
+  bottom: 0;
+}
+.menu-link::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: width 0.2s;
+  position: absolute;
+  bottom: 0;
+}
+
+.menu-link:hover::after {
+  width: 100%;
+  background: #fff;
+}
+
+.menu-item:hover .menu-modal {
+  display: block;
+  animation: bounceIn 0.3s ease-in;
+}
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.menu-item:hover .heading {
+  background: var(
+    --xanh-linear,
+    linear-gradient(180deg, #4ca757 0%, #16a571 100%)
+  ) !important;
+}
+.menu-secondary:hover .modal-secondary {
+  display: flex;
+}
+
+.modal-secondary {
+  animation: bounceIn 0.3s ease-in;
+}
+.text-slide-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text-slide {
+  display: inline-block;
+  padding-left: 100%; /* Tăng khoảng cách bên trái để ẩn văn bản */
+  -webkit-text-stroke: 1px #4ca757;
+  // transform: translateX(100%);
+  animation: RightToLeft 30s infinite linear;
+}
+
+@keyframes RightToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.navigation-link {
+  border-bottom: 1px solid #fff;
+}
+.text-gradient {
+  opacity: 0.8999999761581421;
+  background: linear-gradient(181deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  backdrop-filter: blur(2px);
+}
+.layout {
+  height: 125px;
+}
+// .swiper {
+//   column-gap: 16px;
+// }
+
+.swiper-slide-active .slide-content {
+  background: #16a571;
+  color: #fff;
+}
